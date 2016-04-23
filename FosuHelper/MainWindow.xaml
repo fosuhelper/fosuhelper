@@ -1,0 +1,240 @@
+﻿<Window x:Class="FosuHelper.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FosuHelper"
+        mc:Ignorable="d"
+        Title="佛大小助手" Height="350" Width="400" ResizeMode="CanMinimize" Icon="Fosuhelper.ico" Closing="Window_Closing" StateChanged="Window_StateChanged">
+    <Grid Margin="5">
+        <TabControl>
+            <TabItem Header="程序设置">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="0">选择网卡：</TextBlock>
+                        <ComboBox x:Name="cb_adapters" Grid.Column="1" Margin="5 0" SelectionChanged="cb_adapters_SelectionChanged">
+
+                        </ComboBox>
+                        <Button x:Name="btn_refrash_nics" Grid.Column="2" Click="btn_refrash_nics_Click">刷新网卡</Button>
+                    </Grid>
+                    <StackPanel Grid.Row="1" Margin="5">
+                        <CheckBox x:Name="checkbox_enable_c3h" Margin="0 5" Click="checkbox_enable_c3h_Click">自动启动 c3h (iNode 客户端)</CheckBox>
+                        <CheckBox x:Name="checkbox_enable_fsurfing" Margin="0 5" Click="checkbox_enable_fsurfing_Click">自动启动 f-surfing (天翼客户端)</CheckBox>
+                    </StackPanel>
+                    <Border Grid.Row="2" Height="1" Background="Gray" Margin="5 0"></Border>
+                    <Grid Grid.Row="3" Margin="5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*" />
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="1" x:Name="Btn_login" Margin="0 0 5 0" Padding="5 0" Click="Btn_login_Click">启动</Button>
+                        <Button Grid.Column="2" x:Name="Btn_exit" Margin="5 0 0 0" Padding="5 0" Click="Btn_exit_Click">退出</Button>
+                    </Grid>
+                    <TextBox x:Name="main_logs"
+                             Grid.Row="4"
+                             Margin="5"
+                             Background="White"
+                             Foreground="Black"
+                             AcceptsReturn="True"
+                             VerticalScrollBarVisibility="Auto"
+                             HorizontalScrollBarVisibility="Auto"
+                             IsReadOnly="True">
+                    </TextBox>
+                </Grid>
+            </TabItem>
+            <TabItem Header="iNode 设置">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4 *" />
+                            <ColumnDefinition Width="1 *" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Margin="0 5">账号：</TextBlock>
+                                <TextBlock Margin="0 5">密码：</TextBlock>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBox x:Name="c3h_username" Margin="0 5"></TextBox>
+                                <PasswordBox x:Name="c3h_password" Margin="0 5"></PasswordBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="2" Margin="5">
+                            <StackPanel>
+                                <Button x:Name="btn_SaveC3HConfig" Margin="0" Click="btn_SaveC3HConfig_Click">保存</Button>
+                                <Button x:Name="btn_C3HLogin" Margin="0 7 0 0" Click="btn_C3HLogin_Click">登录</Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="Gray" Height="0.5" Margin="-5 7"></Border>
+                        <TextBlock Grid.Row="1" >c3h 日志信息</TextBlock>
+                        <TextBox x:Name="c3h_logs"
+                                 Background="White"
+                                 Foreground="Black"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Auto"
+                                 IsReadOnly="True"
+                                 Grid.Row="2">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="天翼设置">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="4 *" />
+                            <ColumnDefinition Width="1 *" />
+                        </Grid.ColumnDefinitions>
+                        <Grid Grid.Column="0">
+                            <StackPanel>
+                                <TextBlock Margin="0 5">账号：</TextBlock>
+                                <TextBlock Margin="0 5">密码：</TextBlock>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="1">
+                            <StackPanel>
+                                <TextBox x:Name="es_username" Margin="0 5"></TextBox>
+                                <PasswordBox x:Name="es_password" Margin="0 5"></PasswordBox>
+                            </StackPanel>
+                        </Grid>
+                        <Grid Grid.Column="2" Margin="5">
+                            <StackPanel>
+                                <Button x:Name="btn_savaFSurfingConfig" Click="btn_savaFSurfingConfig_Click">保存</Button>
+                                <Button x:Name="btn_loginFSurfing" Click="btn_FSurfinglogin_Click" Margin="0 7 0 0">登录</Button>
+                            </StackPanel>
+                        </Grid>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+                        <Border Grid.Row="0" Background="Gray" Height="0.5" Margin="-5 7"></Border>
+                        <TextBlock Grid.Row="1" >f-surfing 日志信息</TextBlock>
+                        <TextBox x:Name="es_logs"
+                                 Background="White"
+                                 Foreground="Black"
+                                 AcceptsReturn="True"
+                                 VerticalScrollBarVisibility="Auto"
+                                 HorizontalScrollBarVisibility="Auto"
+                                 IsReadOnly="True"
+                                 Grid.Row="2">
+                        </TextBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="关于">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0" HorizontalAlignment="Center">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="*" />
+                        </Grid.ColumnDefinitions>
+                        <Ellipse Grid.Column="0" Margin="5" Width="80" Height="80">
+                            <Ellipse.Fill>
+                                <ImageBrush ImageSource="Assets/avatar.jpg" />
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <StackPanel Grid.Column="1" Margin="10 5" VerticalAlignment="Center">
+                            <TextBlock>佛大传奇，伴你成长； </TextBlock>
+                            <TextBlock>一角校园，十分精彩。</TextBlock>
+                            <TextBlock HorizontalAlignment="Right" FontWeight="Thin" FontSize="10" FontFamily="Microsoft YaHei UI Light">——佛大小助手</TextBlock>
+                            <!--
+                            <TextBlock>校园宽带，坑你钱财；</TextBlock>
+                            <TextBlock>一脚踹爆，十分刺激。</TextBlock>
+                            <TextBlock FontFamily="Microsoft Yahei Light">微信公众号：fosuhelpwx</TextBlock>-->
+                        </StackPanel>
+                    </Grid>
+                    <StackPanel Margin="5 0" Grid.Row="1">
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Microsoft Yahei Light">程序版本：</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">V1.0.0 (Build 160424)</TextBlock>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock FontFamily="Microsoft Yahei Light">编译时间：</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-24 01:09</TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                    <ScrollViewer Grid.Row="2" Margin="5">
+                        <ScrollViewer.Content>
+                            <StackPanel>
+                                <StackPanel Margin="0 5">
+                                    <TextBlock>关于</TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        本程序是基于 GitHub 上一些优秀的项目而编写的，请同学们使用时遵守学校的“一人一号”规则。
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="0 5">
+                                    <TextBlock>帮助</TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        欢迎访问我们的主页以获得更新：http://fosuhelper.github.io
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        如果需要帮助，请发送邮件到 fosuhelper@outlook.com，我们会尽可能地为你解答你的问题。当然我们也不是万能的，所以并不是你的所有问题都能解决。
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        P.S. 我们不出售路由器。如果你的动手能力强，可以自行到网上购买“硬改过”的二手路由（￥40左右），然后自行刷机并安装相应的程序。
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="0 5">
+                                    <TextBlock>开源</TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        本程序完全开源，源码托管在 GitHub，接受大家的监督。如果你不相信（或从不明来路得到）本程序，可以到 GitHub 上获取代码自行 Review 后再自行编译。
+                                    </TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        项目地址：https://github.com/fosuhelper/fosuhelpper
+                                    </TextBlock>
+                                </StackPanel>
+                                <StackPanel Margin="0 5">
+                                    <TextBlock>感谢</TextBlock>
+                                    <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
+                                        感谢来自全国各地的大神作出的努力，正因为有了大神们的研究，所以才有本程序。本程序将大神们的研究成果加了一个界面，程序的正常运行完全离不开大神们的研究。
+                                    </TextBlock>
+                                </StackPanel>
+                            </StackPanel>
+                        </ScrollViewer.Content>
+                    </ScrollViewer>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>
