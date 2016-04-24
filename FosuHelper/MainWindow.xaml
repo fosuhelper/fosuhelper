@@ -191,7 +191,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Microsoft Yahei Light">编译时间：</TextBlock>
-                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-24 01:09</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-24 10:02</TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <ScrollViewer Grid.Row="2" Margin="5">
@@ -221,7 +221,7 @@
                                         本程序完全开源，源码托管在 GitHub，接受大家的监督。如果你不相信（或从不明来路得到）本程序，可以到 GitHub 上获取代码自行 Review 后再自行编译。
                                     </TextBlock>
                                     <TextBlock FontFamily="Microsoft Yahei Light" TextWrapping="Wrap">
-                                        项目地址：https://github.com/fosuhelper/fosuhelpper
+                                        项目地址：https://github.com/fosuhelper/fosuhelper
                                     </TextBlock>
                                 </StackPanel>
                                 <StackPanel Margin="0 5">
