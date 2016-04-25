@@ -187,11 +187,11 @@
                     <StackPanel Margin="5 0" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Microsoft Yahei Light">程序版本：</TextBlock>
-                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">V1.0.0 (Build 160424)</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">V1.0.1 (Build 160425)</TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Microsoft Yahei Light">编译时间：</TextBlock>
-                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-24 10:02</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-25 23:39</TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <ScrollViewer Grid.Row="2" Margin="5">

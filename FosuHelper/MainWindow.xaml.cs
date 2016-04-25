@@ -81,7 +81,26 @@ namespace FosuHelper
 
         private void Btn_login_Click(object sender, RoutedEventArgs e)
         {
-            Start();
+            if(Btn_login.Content.ToString() == "启动")
+            {
+                Start();
+                Btn_login.Content = "停止";
+            }
+            else
+            {
+                try
+                {
+                    C3H.Kill();
+                }
+                catch { }
+                try
+                {
+                    FSurfingThread.Abort();
+                }
+                catch { }
+                Logs("main", "已停止");
+                Btn_login.Content = "启动";
+            }
         }
 
         private void ShowAdapters()
