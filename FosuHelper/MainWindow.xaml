@@ -181,17 +181,18 @@
                             <!--
                             <TextBlock>校园宽带，坑你钱财；</TextBlock>
                             <TextBlock>一脚踹爆，十分刺激。</TextBlock>
+                            <TextBlock>赚学生的钱是会遭天谴的</TextBlock>
                             <TextBlock FontFamily="Microsoft Yahei Light">微信公众号：fosuhelpwx</TextBlock>-->
                         </StackPanel>
                     </Grid>
                     <StackPanel Margin="5 0" Grid.Row="1">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Microsoft Yahei Light">程序版本：</TextBlock>
-                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">V1.0.1 (Build 160425)</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">V1.1.0 (Build 160502)</TextBlock>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal">
                             <TextBlock FontFamily="Microsoft Yahei Light">编译时间：</TextBlock>
-                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-04-25 23:39</TextBlock>
+                            <TextBlock FontFamily="Courier New" Margin="0 3 0 0">2016-05-02 00:09</TextBlock>
                         </StackPanel>
                     </StackPanel>
                     <ScrollViewer Grid.Row="2" Margin="5">

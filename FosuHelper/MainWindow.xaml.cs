@@ -199,7 +199,9 @@ namespace FosuHelper
             Logs("main", "正在发起 f-surfing 认证");
             string token = string.Empty;
 
-            for(int i = 0; i < 10; i++)
+            int i = 0;
+
+            while(true)
             {
                 fsurfing FS = new fsurfing(FSURFING_USERNAME, FSURFING_PASSWORD, ADAPTERIP, ADAPTERMAC);
                 Logs("fsurfing", "第 " + (i + 1).ToString() + " 次尝试登录");
@@ -228,20 +230,12 @@ namespace FosuHelper
                 {
                     Logs("fsurfing", "Get token failed");
                 }
-                if(i < 9)
-                {
-                    Logs("fsurfing", "第 " + (i + 1).ToString() + " 次登录失败，五秒后将重试");
-                    Thread.Sleep(5000);
-                    Action updateAdapters = new Action(ShowAdapters);
-                    cb_adapters.Dispatcher.BeginInvoke(updateAdapters);
-                }
-                else
-                {
-                    Logs("fsurfing", "第 10 次登录失败，已停止认证");
-                    Logs("main", "f-surfing 已停止");
-                    Action<String> updateFSurfingBtn = new Action<string>(UpdateFSurfingButtonStatus);
-                    btn_loginFSurfing.Dispatcher.BeginInvoke(updateFSurfingBtn, "登录");
-                }
+
+                Logs("fsurfing", "第 " + (i + 1).ToString() + " 次登录失败，五秒后将重试");
+                Thread.Sleep(5000);
+                Action updateAdapters = new Action(ShowAdapters);
+                cb_adapters.Dispatcher.BeginInvoke(updateAdapters);
+                
             }
         }
 
